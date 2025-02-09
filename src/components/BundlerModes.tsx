@@ -1,5 +1,5 @@
 
-import { Zap, Package, Grid3X3, Users, ListTree, Wand2, Moon } from 'lucide-react';
+import { Zap, Package, Grid3X3, Users, ListTree, Wand2, Moon, Rocket } from 'lucide-react';
 import { Card } from './ui/card';
 import { useNavigate } from 'react-router-dom';
 
@@ -52,6 +52,12 @@ const bundlerModes: BundlerMode[] = [
     description: "Bundle with 1 Dev Snipe, Wait X SOL and Auto Sell",
     icon: <Moon className="w-6 h-6 text-white" />,
     bgColor: "bg-gradient-to-br from-indigo-400 to-indigo-600",
+  },
+  {
+    title: "Turbo Bundler",
+    description: "Flash Buy + Multi-DEX Arb + Auto Distribute to 25 Wallets",
+    icon: <Rocket className="w-6 h-6 text-white" />,
+    bgColor: "bg-gradient-to-br from-teal-400 to-cyan-600",
   },
 ];
 
