@@ -1,6 +1,7 @@
 
 import { Zap, Package, Grid3X3, Users, ListTree, Wand2, Moon } from 'lucide-react';
 import { Card } from './ui/card';
+import { useNavigate } from 'react-router-dom';
 
 interface BundlerMode {
   title: string;
@@ -47,6 +48,12 @@ const bundlerModes: BundlerMode[] = [
 ];
 
 const BundlerModes = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (title: string) => {
+    navigate(`/bundler/${encodeURIComponent(title)}`);
+  };
+
   return (
     <section className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
@@ -66,6 +73,7 @@ const BundlerModes = () => {
                 animation: 'fade-in 0.6s ease-out forwards',
                 opacity: 0,
               }}
+              onClick={() => handleCardClick(mode.title)}
             >
               <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-primary/5 mb-4">
                 {mode.icon}
