@@ -1,0 +1,83 @@
+
+import { Zap, Package, Grid3X3, Users, ListTree, Wand2, Moon } from 'lucide-react';
+import { Card } from './ui/card';
+
+interface BundlerMode {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+const bundlerModes: BundlerMode[] = [
+  {
+    title: "Flash Launch",
+    description: "Bundle with Zero Snipes",
+    icon: <Zap className="w-6 h-6 text-yellow-500" />,
+  },
+  {
+    title: "Standard Bundler",
+    description: "Bundle with Dev Only Snipe Single",
+    icon: <Package className="w-6 h-6 text-blue-500" />,
+  },
+  {
+    title: "Quadro Bundler",
+    description: "Bundle with 1+3 Wallet Snipes",
+    icon: <Grid3X3 className="w-6 h-6 text-green-500" />,
+  },
+  {
+    title: "Distro Bundler",
+    description: "Bundle with 1+3 Wallet Snipes => 100 Wallet Distribution",
+    icon: <Users className="w-6 h-6 text-purple-500" />,
+  },
+  {
+    title: "Stag Bundler",
+    description: "Bundle with Zero Snipes, Delay and 49 Wallet Staggered Snipes",
+    icon: <ListTree className="w-6 h-6 text-orange-500" />,
+  },
+  {
+    title: "Magic Bundler",
+    description: "Bundle with 1 Dev Snipe, Wait Until a Snipe, Book Dev and Bundle 5",
+    icon: <Wand2 className="w-6 h-6 text-pink-500" />,
+  },
+  {
+    title: "DarkMode Bundler",
+    description: "Bundle with 1 Dev Snipe, Wait X SOL and Auto Sell",
+    icon: <Moon className="w-6 h-6 text-indigo-500" />,
+  },
+];
+
+const BundlerModes = () => {
+  return (
+    <section className="py-24 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-semibold mb-4">Token Bundler Modes</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Choose from our powerful bundling modes for PumpFun/Raydium/MS
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bundlerModes.map((mode, index) => (
+            <Card
+              key={index}
+              className="glass p-6 transition-all duration-300 hover:translate-y-[-8px] hover:shadow-lg cursor-pointer"
+              style={{
+                animationDelay: `${index * 100}ms`,
+                animation: 'fade-in 0.6s ease-out forwards',
+                opacity: 0,
+              }}
+            >
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-primary/5 mb-4">
+                {mode.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{mode.title}</h3>
+              <p className="text-muted-foreground">{mode.description}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BundlerModes;
